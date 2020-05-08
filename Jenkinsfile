@@ -19,6 +19,7 @@ pipeline {
             steps {
                 echo '[INFO] Here will be our `terraform plan`'
                 echo '[DEBUG] verbose of `terraform plan`'
+                echo '[DEBUG] added'
             }
         }
 
