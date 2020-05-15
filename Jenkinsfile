@@ -6,7 +6,6 @@ pipeline {
             defaultContainer 'iac-tool'
         }
     }
-
     options {
         ansiColor('xterm')
     }
@@ -30,8 +29,12 @@ pipeline {
         stage('TF Plan') {
             steps {
                 echo '[INFO] Here will be our `terraform plan`'
-                echo '[DEBUG] verbose of `terraform plan`'
-                echo '[DEBUG] added'
+                script {
+                    terraform.plan(
+                        color: true,
+                        plan_file: './terraform.plan'
+                    )
+                }
             }
         }
 
