@@ -11,13 +11,14 @@ pipeline {
 
         stage('Prepare') {
             steps {
-                echo '[INFO] Here will be our preparation steps'
-                terraform.init(
+                script {
+                    terraform.init(
                     color: true, 
                     backend_configs: [
                         'what',
-                    ]
-                )
+                        ]
+                    )
+                } 
             }
         }
 
