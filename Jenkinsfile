@@ -12,6 +12,7 @@ pipeline {
         stage('Prepare') {
             steps {
                 echo '[INFO] Here will be our preparation steps'
+                terraform.fmt()
             }
         }
 
