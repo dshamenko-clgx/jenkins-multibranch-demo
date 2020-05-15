@@ -19,8 +19,7 @@ pipeline {
                     terraform.init(
                         color: true, 
                         backend_configs: [
-                            'what',
-                            'heck'
+                            './demo.config',
                             ]
                         )
                 } 
