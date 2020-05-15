@@ -20,6 +20,7 @@ pipeline {
                         color: true, 
                         backend_configs: [
                             './demo.config',
+                            './stage.config',
                             ]
                         )
                 } 
