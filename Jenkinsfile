@@ -22,7 +22,7 @@ pipeline {
                             './stage.config',
                             ]
                         )
-                } 
+                }
             }
         }
 
@@ -39,11 +39,14 @@ pipeline {
         }
 
         stage('TF Apply') {
-            when {
-                branch 'master'
-            }
             steps {
                 echo '[INFO] Here will be our `terraform apply`'
+                script {
+                    terraform.apply(
+                        color: true,
+                        config_path: './terraform.plan'
+                    )
+                }
             }
         }
     }
