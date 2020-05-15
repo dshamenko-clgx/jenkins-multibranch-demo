@@ -13,11 +13,12 @@ pipeline {
             steps {
                 script {
                     terraform.init(
-                    color: true, 
-                    backend_configs: [
-                        'what',
-                        ]
-                    )
+                        color: true, 
+                        backend_configs: [
+                            'what',
+                            'heck'
+                            ]
+                        )
                 } 
             }
         }
