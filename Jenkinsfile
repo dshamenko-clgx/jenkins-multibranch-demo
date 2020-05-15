@@ -7,6 +7,10 @@ pipeline {
         }
     }
 
+    options {
+        ansiColor('xterm')
+    }
+
     stages {
 
         stage('Prepare') {
