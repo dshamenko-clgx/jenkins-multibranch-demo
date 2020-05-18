@@ -10,6 +10,10 @@ pipeline {
         ansiColor('xterm')
     }
 
+    environment {
+        TFPLAN = "${env.WORKSPACE}/terraform.plan"
+    }
+
     stages {
 
         stage('Prepare') {
@@ -19,7 +23,6 @@ pipeline {
                         color: true, 
                         backend_configs: [
                             './demo.config',
-                            './stage.config',
                             ]
                         )
                 }
@@ -32,7 +35,7 @@ pipeline {
                 script {
                     terraform.plan(
                         color: true,
-                        plan_file: './terraform.plan'
+                        plan_file: env.TFPLAN
                     )
                 }
             }
@@ -44,7 +47,7 @@ pipeline {
                 script {
                     terraform.apply(
                         color: true,
-                        config_path: './terraform.plan'
+                        config_path: env.TFPLAN
                     )
                 }
             }
