@@ -18,6 +18,7 @@ pipeline {
 
         stage('Prepare') {
             steps {
+                sh "git clone git@github.com:corelogic/clgx-tfe-coreautomation.git"
                 script {
                     terraform.init(
                         color: true, 
